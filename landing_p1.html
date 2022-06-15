@@ -55,6 +55,8 @@
 </body>
 </html>
 <script>
+    let myCart = JSON.parse(localStorage.getItem("mycart")) || [];
+
     let data = [
         {image :"https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master-catalog/default/dw03f81e19/crop/026458602_crop.jpg?sw=500&sh=600&sm=fit&q=75&yocs=o_s_",name : "Fresh Spring Morning", use : "3-Wick Candle", price : "$12.25", btnName: "ADD TO BAG",stars : ""},
         {image :"https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master-catalog/default/dw6d5e64ca/crop/026490034_crop.jpg?sw=500&sh=600&sm=fit&q=75&yocs=o_s_",name : "Sunshine & Lemons", use : "Gentle Foaming Hand Soap", price : "$3.75", btnName: "ADD TO BAG",stars : ""},
@@ -106,7 +108,6 @@
         {image :"https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master-catalog/default/dw6001e2b0/crop/026297834_crop.jpg?sw=500&sh=600&sm=fit&q=75&yocs=o_s_",name : "Sea Island Shore", use : "Ultimate Hydration Body Cream", price : "$3.87", btnName: "ADD TO BAG",stars : ""},
     ]
 
-
     data.forEach(function(elem){
         let box0 = document.createElement("div");
         box0.setAttribute("class","products")
@@ -124,6 +125,9 @@
         price.innerText = elem.price;
         
         let btn = document.createElement("button");
+        btn.addEventListener("click",function(){
+            addToCart(elem)
+        });
         let btnName = document.createElement("h3");
         btnName.innerText = elem.btnName;
         btn.append(btnName);
@@ -132,4 +136,10 @@
         box0.append(box1,box2);
         document.querySelector("#rightSide").append(box0);
     })
+
+    function addToCart(elem){
+        myCart.push(elem);
+        localStorage.setItem("myCart",JSON.stringify(myCart));
+    }
+    console.log(myCart);
 </script>
