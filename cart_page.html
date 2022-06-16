@@ -73,9 +73,6 @@
             justify-content: space-between;
             margin: 50px auto 20px auto;
         }
-        #bag >div{
-            /* border: 1px solid blue; */
-        }
         #bag > div:last-child > button{
             height: 100%;
         }
@@ -84,19 +81,20 @@
         }
         #bag > div:last-child > button:last-child{
             width: 200px;
+            
         }
         #bag > div:last-child > button:first-child >img{
-            width: 80%;
-            height: auto;
+            width: 70%;
+            height: 46%;
         }
         #bag > div:last-child > button:last-child > div{
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
         }
         #bag > div:last-child > button:last-child > div >svg{
             width: 15px;
+            height: auto;
         }
         
 
@@ -173,81 +171,105 @@
             padding: 0px 40px 0px 40px;
         }
         #updateBag > button > h4{
-            line-height: 0px;
+            /* line-height: 0px; */
         }
         #line1{
             width: 70%;
             margin: 40px auto 40px auto;
         }
         #payment{
-            border: 1px solid black;
+            /* border: 1px solid black; */
             width: 70%;
             display: flex;
             margin: auto;
             height: 400px;
             justify-content:space-between;
         }
-        #payment > div{
+        /* #payment > div{
             border: 1px solid teal;
+        } */
+        #promocode > div{
+            padding: 20px;
+        }
+        #promocode > div > h3{
+            margin-top: -10px;
         }
         #payment > div:first-child{
             width: 35%;
         }
         #payment > div:first-child > div{
             border: 1px solid black;
-            height: 50%;
-            width: 100%;
+            height: 23%;
+            width: 80%;
         }
         #payment > div:last-child{
             width: 55%;
+            /* background-color: rgb(239,239,239); */
         }
         #payment > div:last-child >div{
-            border: 1px solid green;
+            /* border: 1px solid green; */
             height: 100%;
             
         }
+        #checkout >div>div{
+            background-color: rgb(242,242,242);
+        }
         #payment > div:last-child >div >div:first-child{
-            border: 1px solid rebeccapurple;
-            height: 30%;
+            /* border: 1px solid rebeccapurple; */
+            height: 25%;
             padding: 20px;
         }
         #payment > div:last-child >div >div:last-child{
-            border: 1px solid rebeccapurple;
+            /* border: 1px solid rebeccapurple; */
             height: 35%;
             padding: 20px;
         }
         .pay{
             display: flex;
             justify-content: space-between;
-            line-height: 1px;
+            /* line-height: 1px; */
         }
-        #bottom1{
-            line-height: 5px;
+        .pay > p{
+            margin-top: -3px;
         }
-        #bottom1 > div{
+        #bottom1 > div:first-child{
             display: flex;
             justify-content: space-between;
+            margin-top: -25px;
+        }
+        #bottom1 > div:nth-child(2){
+            margin-top: -10px;
+        }
+        #bottom1 > div:last-child{
+            margin-top: -10px;
+        }
+        #bottom1 > p:last-child{
+            margin-top: -10px;
         }
         #paymentBtn{
             display: flex;
             padding: 10px;
             justify-content: space-between;
+            margin-top: 10px;
         }
         #paymentBtn > button:first-child{
             display: flex;
             height: 40px;
-            width: 120px;
+            width: 200px;
             justify-content: center;
             align-items: center;
+            background-color: rgb(255,196,57);
+            border: none;
         }
         #paymentBtn > button:last-child{
             display: flex;
             height: 40px;
-            width: 120px;
+            width: 200px;
             justify-content: center;
             align-items: center;
             background-color: green;
             color: white;
+            border: none;
         }
         #paymentBtn > button:last-child >div{
             /* border: 1px solid black; */
@@ -261,6 +283,11 @@
             padding-right: 5px;
             color: white;
         }
+        #paymentBtn > button:first-child > img{
+            width: 100px;
+            height: 60%;
+        }
+        
     </style>
 </head>
 <body>
@@ -366,7 +393,7 @@
                     <div id = "quantity">
                         <div>
                             <button>-</button>
-                            <p>count</p>
+                            <button>1</button>
                             <button></button>
                         </div>
                         <div>
@@ -417,6 +444,7 @@
                         <p>Tex is estimated and will be calculated when your order is processed</p>
                     </div>
                 </div>
+                <hr>
                 <div id="bottom1">
                     <div>
                         <h3>ORDER TOTAL (USD)</h3>
@@ -433,86 +461,14 @@
                             <h4>CHECKOUT</h4>
                         </button>
                     </div>
-                    <P>International Shoppers</P>
-                    <P>All prices are displayed and processed in US dollers (USD).</P>
+                    <p>International Shoppers</p>
+                    <p>All prices are displayed and processed in US dollers (USD).</p>
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
-<script>
-    let myCart = JSON.parse(localStorage.getItem("myCart")) || [];
-
-    myCart.forEach(function(elem){
-        //Item
-        let row = document.createElement("tr");
-        row.setAttribute("height","200px")
-
-        let td1 = document.createElement("td");
-
-        let box0 = document.createElement("div");
-        box0.setAttribute("id","productDetails")
-
-        let box11 = document.createElement("div");
-        let image = document.createElement("img");
-        image.setAttribute("src",elem.image);
-        box11.append(image);
-
-        let box12 = document.createElement("div");
-        let name = document.createElement("h3");
-        name.innerText = elem.name;
-        let type = document.createElement("p");
-        type.innerText = elem.use;
-        let list = document.createElement("p");
-        list.innerText = "\u2764 Add to My Love-It List";
-        box12.append(name,type,list);
-
-        box0.append(box11,box12);
-        td1.append(box0);
-        
-        //price
-        let td2 = document.createElement("td");
-        let box3 = document.createElement("div");
-        box3.setAttribute("id","price");
-        let price = document.createElement("h3");
-        price.innerText = elem.price;
-        box3.append(price);
-        td2.append(box3);
-
-        //Quantity
-        let td3 = document.createElement("td");
-        let box00 = document.createElement("div");
-        box00.setAttribute("id","quantity");
-        let box4 = document.createElement("div");
-        let btn1 = document.createElement("button");
-        btn1.innerText = "-";
-        let count = document.createElement("button");
-        count.innerText ="1";
-        let btn2 = document.createElement("button");
-        btn2.innerText = "+";
-        box4.append(btn1,count,btn2);
-        let box5 = document.createElement("div");
-        let isAvailabe = document.createElement("p")
-        isAvailabe.innerText = "Available";
-        box5.append(isAvailabe);
-        box00.append(box4,box5);
-        td3.append(box00);
-
-        //Total price
-        let td4 = document.createElement("td");
-        let box6 = document.createElement("div");
-        box6.setAttribute("id","totalPrice");
-        let totalPrice = document.createElement("h3")
-        totalPrice.innerText = elem.price;
-        let remove = document.createElement("p");
-        remove.innerText = "X";
-        box6.append(totalPrice,remove);
-        td4.append(box6);
-
-        //append all
-        row.append(td1,td2,td3,td4);
-        document.querySelector("tbody").append(row);
-
-    })
+<script src="cartP.js">
+    
 </script>
