@@ -5,6 +5,8 @@
 5. using flex property with grid property is still confusing for me
 6. i also learned that first try to copy the layout in divide and conquer.html and when it works paste it in original file
 in landing_p1.html while working with data, after doing grid display stuff i got sad.. why its still not working.. it because you also have to set image sizes
+i did not memorized the structure of table, also do not know how to style the tables.. i guess i have learned it now
+you cannot access local storage element of a different html file live if you are not connected to that file
 
 /* #bigSales > div:first-child{
             border: 1px solid navy;

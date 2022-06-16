@@ -5,8 +5,182 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart Page</title>
+    <style>
+        /* table,th,tr,td{
+            border: 1px solid;
+        } */
+        table{
+            width: 70%;
+            margin: auto;
+        }
+        th{
+            background-color: rgb(242,242,242);
+            padding: 10px 0px 10px 0px;
+        }
+        #productDetails{
+            border: 1px solid green;
+            height: 150px;
+            display: flex;
+            /* flex-direction: row-reverse; */
+        }
+        #productDetails > div{
+            border: 1px dotted navy;
+        }
+        #productDetails > div:first-child{
+            width: 30%;
+            height: 50%;
+            margin-top: 30px;
+        }
+        #productDetails > div:last-child{
+            width: 70%;
+        }
+        #productDetails > div:first-child > img{
+            width: 100%;
+            height: 100%;
+        }
+        #price{
+            border: 1px solid teal;
+        }
+        #quantity{
+            border: 1px solid rebeccapurple;
+        }
+        #quantity > div:first-child{
+            border: 1px solid indianred;
+            display: flex;
+        }
+        #totalPrice{
+            border: 1px solid violet;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+    </style>
 </head>
 <body>
-    
+    <table>
+        <thead>
+            <tr>
+                <th width = "40%">Item</th>
+                <th width = "10%">Price</th>
+                <th width = "30%">Quantity</th>
+                <th width = "20%">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- write your code here -->
+            <!-- <tr>
+                <td>
+                    <div id = "productDetails">
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                        <div>
+                            <h3>name</h3>
+                            <p>use</p>
+                            <p>love list</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div id = "price">
+                        <h3>price</h3>
+                    </div>
+                </td>
+                <td>
+                    <div id = "quantity">
+                        <div>
+                            <button>-</button>
+                            <p>count</p>
+                            <button></button>
+                        </div>
+                        <div>
+                            <p>Available</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div id = "totalPrice">
+                        <h3>Total Price</h3>
+                        <button>X</button>
+                    </div>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
 </body>
 </html>
+<script>
+    let myCart = JSON.parse(localStorage.getItem("myCart")) || [];
+
+    myCart.forEach(function(elem){
+        //Item
+        let row = document.createElement("tr");
+        row.setAttribute("height","200px")
+
+        let td1 = document.createElement("td");
+
+        let box0 = document.createElement("div");
+        box0.setAttribute("id","productDetails")
+
+        let box11 = document.createElement("div");
+        let image = document.createElement("img");
+        image.setAttribute("src",elem.image);
+        box11.append(image);
+
+        let box12 = document.createElement("div");
+        let name = document.createElement("h3");
+        name.innerText = elem.name;
+        let type = document.createElement("p");
+        type.innerText = elem.use;
+        let list = document.createElement("p");
+        list.innerText = "\u2764 Add to My Love-It List";
+        box12.append(name,type,list);
+
+        box0.append(box11,box12);
+        td1.append(box0);
+        
+        //price
+        let td2 = document.createElement("td");
+        let box3 = document.createElement("div");
+        box3.setAttribute("id","price");
+        let price = document.createElement("h3");
+        price.innerText = elem.price;
+        box3.append(price);
+        td2.append(box3);
+
+        //Quantity
+        let td3 = document.createElement("td");
+        let box00 = document.createElement("div");
+        box00.setAttribute("id","quantity");
+        let box4 = document.createElement("div");
+        let btn1 = document.createElement("button");
+        btn1.innerText = "-";
+        let count = document.createElement("div");
+        count.innerText ="quantity(in digits)";
+        let btn2 = document.createElement("button");
+        btn2.innerText = "+";
+        box4.append(btn1,count,btn2);
+        let box5 = document.createElement("div");
+        let isAvailabe = document.createElement("p")
+        isAvailabe.innerText = "Available";
+        box5.append(isAvailabe);
+        box00.append(box4,box5);
+        td3.append(box00);
+
+        //Total price
+        let td4 = document.createElement("td");
+        let box6 = document.createElement("div");
+        box6.setAttribute("id","totalPrice");
+        let totalPrice = document.createElement("h3")
+        totalPrice.innerText = elem.price;
+        let remove = document.createElement("button");
+        remove.innerText = "X";
+        box6.append(totalPrice,remove);
+        td4.append(box6);
+
+        //append all
+        row.append(td1,td2,td3,td4);
+        document.querySelector("tbody").append(row);
+
+    })
+</script>
