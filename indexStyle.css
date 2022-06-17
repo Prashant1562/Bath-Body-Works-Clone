@@ -5,7 +5,7 @@
   box-shadow: 3px 3px 3px rgb(235, 235, 235);
   position: sticky;
   }
-  .nav-img>img{
+  .nav-img>a>img{
   width: 25%;
   margin: auto;
   margin-top: 35px;
