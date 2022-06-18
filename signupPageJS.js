@@ -11,11 +11,15 @@ form.addEventListener("submit", function(event){
         localStorage.setItem("signIn",JSON.stringify(data));
         alert("sign in successful");
         window.location.href="index.html";
+        console.log(data);
     }else{
         alert("Wrong username or password");
     }
 })
-
+document.querySelector("#createAcc").addEventListener("click",createAccount);
+function createAccount(){
+    window.location.href = "createAccount.html";
+}
 function checkSignIn(email, password){
     let filter = userData.filter(function(element){
         return element.email === email && element.password === password;

@@ -1,4 +1,4 @@
-
+// document.querySelector("#newAccount").addEventListener("click",createAccount);
 let form = document.querySelector("form");
 let userData = JSON.parse(localStorage.getItem("userData")) || [];
 form.addEventListener("submit",function(event){
@@ -8,16 +8,21 @@ form.addEventListener("submit",function(event){
         email : form.email.value,
         password : form.password.value
     }
-    // console.log(data);
+    console.log(data);
     if(checkEmails(data.email)===true){
         userData.push(data);
         localStorage.setItem("userData",JSON.stringify(userData));
         alert("Account created successfully");
-        window.location.href = "signup_page.html";
+        window.location.href = "signupPage.html";
     }else{
         alert("Account already Exists");
     }
 })
+document.querySelector("#createAcc").addEventListener("click",goToLogin)
+    function goToLogin(){
+        window.location.href = "signupPage.html";
+    }
+
 
 function checkEmails(email){
     let filtered = userData.filter(function(element){
@@ -29,3 +34,7 @@ function checkEmails(email){
         return true;
     }
 }
+
+// function createAccount(){
+//     window.location.href = "createAccount.html";
+// }

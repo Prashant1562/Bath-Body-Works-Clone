@@ -6,7 +6,6 @@
     text-decoration: none;
     text-transform: uppercase;
 }
-
 .container{
     min-height: 100vh;
     background: #eee;
@@ -16,7 +15,6 @@
     flex-flow: column;
     padding-bottom: 60px;
 }
-
 .container form{
     background: #fff;
     border-radius: 5px;
@@ -47,7 +45,6 @@
 .container form .flexBox .inputBox{
     flex:1 1 150px;
 }
-
 .container form .submit-btn{
     width: 100%;
     background: linear-gradient(45deg, blueviolet, deeppink);
@@ -59,11 +56,11 @@
     cursor: pointer;
     transition: .2 linear;
     break-before: 5px;
+    text-align: center;
 }
 .container form .submit-btn:hover{
 letter-spacing: 2px;
 opacity: .8px;
-
 }
 .payment>P{
    line-height: 50PX; 
