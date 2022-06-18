@@ -166,7 +166,7 @@ cursor: pointer;
  .temp:hover{
     color: #000;
     line-height: 20px;
-   
+    cursor:pointer; 
  }
  .temp a{
     text-decoration: none;
