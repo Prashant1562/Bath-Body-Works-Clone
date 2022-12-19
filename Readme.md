@@ -21,6 +21,7 @@ https://lovely-strudel-3e3ddd.netlify.app
 
 # Snap shots
 <b> Home Page </b>
-<img src=" https://prashant1562.github.io/assets/img/bath%20and%20body%20works%20april%205%202017%20website%20changes.png"/>
-
+<br>
+<img src="https://prashant1562.github.io/assets/img/bath%20and%20body%20works%20april%205%202017%20website%20changes.png" />
+<br>
 
